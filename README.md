@@ -1,0 +1,1 @@
+This is the repo to hold my 2025 Advent of Code solutions. I'm using this file to make sure the connection between a folder on my computer and the remote repo is good
