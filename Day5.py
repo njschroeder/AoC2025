@@ -31,10 +31,10 @@ for i in range(len(freshes_ordered)):
     net_startstop += freshes_ordered[i][1] # those 1s and -1s let us track this easily
     runs.append(freshes_ordered[i])
     if net_startstop == 0: # when we hit net zero, all starts and stops in a run (i.e. overlapping cases) cancel and we've found its end
+        if i < len(freshes_ordered) - 1:
+            if freshes_ordered[i+1][0] == freshes_ordered[i][0]:
+                continue # if we start another run on the same value, keep going to avoid a double count
         fresh_count += (freshes_ordered[i][0] - start + 1)
-        #if len(runs) > 2:
-        #    print(runs)
-        #    print(str(freshes_ordered[i][0]) + ' started from ' + str(start) + '\n')
         if i < len(freshes_ordered) - 1:
             start = freshes_ordered[i+1][0] # protects against error, we're done anyway if this doesn't run
         runs = []
